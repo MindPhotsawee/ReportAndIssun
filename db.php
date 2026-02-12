@@ -1,22 +1,11 @@
 <?php
-// ถ้ามี Environment Variables = ใช้ Railway
-if (getenv('DB_HOST')) {
-    $host = getenv('DB_HOST');
-    $db   = getenv('DB_NAME');
-    $user = getenv('DB_USER');
-    $pass = getenv('DB_PASS');
-    $port = getenv('DB_PORT');
-} else {
-    // ถ้าไม่มี = ใช้ XAMPP localhost
-    $host = 'localhost';
-    $db   = 'repair_system';
-    $user = 'root';
-    $pass = '';
-    $port = 3306;
-}
-
+$host = 'localhost';
+$db   = 'repair_system';
+$user = 'root';        // เปลี่ยนถ้าคุณตั้งค่าอื่น
+$pass = '';            // รหัสผ่านของ MySQL
 $charset = 'utf8mb4';
-$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -27,6 +16,6 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 ?>
