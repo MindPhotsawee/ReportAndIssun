@@ -1,0 +1,19 @@
+:root{--accent:#0056b3;--card:#ffffff}
+    body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f3f7ff 0%, #ffffff 100%);font-family:Inter,system-ui,Arial}
+    .auth-card{width:100%;max-width:920px;border-radius:12px;box-shadow:0 8px 30px rgba(7,15,40,0.08);overflow:hidden}
+    .left{background:linear-gradient(180deg,var(--accent),#0a3d91);color:white;padding:40px 36px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{width:56px;height:56px;border-radius:8px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .title{font-size:1.25rem;font-weight:700;margin-top:18px}
+    .subtitle{opacity:0.9;margin-top:8px}
+    .right{padding:36px;background:var(--card)}
+    .form-toggle{display:flex;gap:8px;margin-bottom:18px}
+    .form-toggle button{flex:1}
+    .form-control:focus{box-shadow:none;border-color:var(--accent)}
+    .note{font-size:0.875rem;color:#666;margin-top:10px}
+    .footer-small{font-size:0.85rem;color:#888;margin-top:18px}
+    @media (max-width: 767px){
+      .auth-card{border-radius:0}
+      .left{padding:28px;text-align:center}
+      
+    }
